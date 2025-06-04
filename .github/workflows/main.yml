@@ -1,0 +1,28 @@
+# .github/workflows/simple-build.yml
+name: My First Simple Build
+
+on:
+  push:
+    branches:
+      - main # This workflow runs every time you push to the 'main' branch
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # This job will run on a virtual machine (Ubuntu Linux)
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4 # This step downloads your repository code
+
+    - name: Simulate Building My App
+      run: | # These are commands that run on the virtual machine
+        echo "--- Starting the build process ---"
+        echo "Building my-app.js..."
+        # Let's simulate a success for now.
+        # To simulate a failure, you could change `exit 0` to `exit 1`
+        exit 0 # exit 0 means success
+
+    - name: Simulate Running Tests (always succeeds for now)
+      run: |
+        echo "--- Running tests ---"
+        echo "Tests passed for my-app.js"
